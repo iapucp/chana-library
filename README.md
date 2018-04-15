@@ -41,7 +41,7 @@ pip install chana
 - Project website: http://chana.inf.pucp.edu.pe
 - Official source code repo: https://github.com/iapucp/chana-library
 - Download releases: https://pypi.python.org/pypi/...
-- HTML documentation (stable release): http://chana.inf.pucp.edu.pe
+- HTML documentation (stable release): http://chana.readthedocs.io/en/latest/
 
 ### Communication
 
