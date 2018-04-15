@@ -1,6 +1,6 @@
 .. currentmodule:: chana
 
-Flask Changelog
+Chana Changelog
 ===============
 
 Version 0.9

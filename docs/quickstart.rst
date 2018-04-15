@@ -38,10 +38,10 @@ So what did that code do?
    the lemma of a Shipibo word.
 3. We then create an instance of the Shipibo NER and use it to get the NER tags of
    a Shipibo sentence.
-3. Next we create an instance of the Shipibo Pos-Tagger and use it to get the pos-tags of
+4. Next we create an instance of the Shipibo Pos-Tagger and use it to get the pos-tags of
    a Shipibo sentence.
-3. Finally we use the syllabify function of the Shipibo Syllabificator in order to get
+5. Finally we use the syllabify function of the Shipibo Syllabificator in order to get
    the syllables of a Shipibo word.
 
 Just save it as :file:`test.py` or something similar, to start using the chana tools
-in a similar way.
+with your own input.

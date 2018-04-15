@@ -3,15 +3,13 @@
 API
 ===
 
-.. module:: chana
-
 This part of the documentation covers all the functions of Chana. 
 
 
-Application Modules
-------------------
+Modules
+---------
 
-.. module:: ner
+../chana module:: ner
 
 
 Useful Functions and Classes

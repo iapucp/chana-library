@@ -2,7 +2,7 @@
 
 chana is a Python library of various NLP tools for the Shipibo-Konibo. 
 Some of these tools can be reused on other peruvian indigenous and/or highly agglutinative languages. 
-It is built on top of scikit-learn and distributed under MIT license.
+It is built on top of scikit-learn, python-crfsuite and distributed under MIT license.
 
 Chana has various NLP tools such as:
 
@@ -26,7 +26,7 @@ Chana requires:
 
 ### User installation
 
-If you already have a working installation of numpy and scipy,
+If you already have a working installation of numpy, scikit-learn and python-crfsuite,
 the easiest way to install chana is using ``pip`` :
 
 ```
