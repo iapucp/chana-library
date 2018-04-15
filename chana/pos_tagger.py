@@ -1,10 +1,7 @@
 #coding=UTF-8
 """
-Part-of-Speech (POS) Tagger for shipibo-konibo
-
-General functions to use the pos tagger for shipibo-konibo.
-
-Source model for the shipibo pos tagger is from the Chana project
+Part-of-Speech (POS) Tagger for shipibo-konibo.
+Source model is from the Chana project
 """
 import os
 from sklearn.externals import joblib
@@ -19,15 +16,33 @@ class ShipiboPosTagger:
     """
 
     def __init__(self):
+        """ Constructor of the ShipiboPosTagger class that loads the pretrained model    
+    """
         my_path = os.path.abspath(os.path.dirname(__file__))
         path = os.path.join(my_path, "files/pos_tagger/shipibo_svm_model.pkl")
         self.postagger = joblib.load(path)
 
 
     def features(self, sentence, tags, index):
-        """
-        Function that returns the features of a sentence to be used in the model
-        """
+        """ Method that returns the features of a word in a sentence to be used by the model
+
+        :param sentence: a sentence in shipibo-konibo
+        :type sentence: str
+        :param tags: tags to be returned for the word
+        :type tags: list
+        :param index: position of the word in the sentence
+        :type index: int
+        :returns: dict of features for the indexed word
+        :rtype: dict
+
+        :Example:
+
+        >>> import chana.pos_tagger
+        >>> tagger = chana.pos_tagger.ShipiboPosTagger()
+        >>> tagger.features('Atsa ea piai',['','',''],2)
+        {'word': 's', 'prevWord': 't', 'nextWord': 'a', 'isFirst': False, 'isLast': False, 'isCapitalized': False, 'isAllCaps': False, 'isAllLowers': True, 'prefix-1': 's', 'prefix-2': 's', 'prefix-3': 's', 'prefix-4': 's', 'suffix-1': 's', 'suffix-2': 's', 'suffix-3': 's', 'suffix-4': 's', 'tag-1': '', 'tag-2': ''}
+        
+    """
         return{
         'word': sentence[ index ],
         'prevWord': '' if index == 0 else sentence[ index - 1 ],
@@ -51,9 +66,21 @@ class ShipiboPosTagger:
 
 
     def pos_tag(self, sentence):
-        """
-        Method that predict the pos-tags of a shipibo sentence
-        """
+        """ Method that predict the pos-tags of a shipibo sentence in the UD format
+
+        :param sentence: a sentence in shipibo-konibo
+        :type sentence: str
+        :returns: list of the tags in UD format
+        :rtype: list
+
+        :Example:
+
+        >>> import chana.pos_tagger
+        >>> tagger = chana.pos_tagger.ShipiboPosTagger()
+        >>> tagger.pos_tag('Atsa ea piai')
+        ['NOUN', 'PRON', 'VERB']
+        
+    """
         tags = []
         tokens = sentence.split(" ")
         for i in range(len(tokens)):
@@ -66,18 +93,42 @@ class ShipiboPosTagger:
         return tags
 
     def full_pos_tag(self, sentence):
-        """
-        Method that predict the pos-tags of a shipibo sentence and returns the full tag in spanish
-        """
+        """ Method that predict the pos-tags of a shipibo sentence and returns the full tag in spanish
+
+        :param sentence: a sentence in shipibo-konibo
+        :type sentence: str
+        :returns: list of the tags in spanish
+        :rtype: list
+
+        :Example:
+
+        >>> import chana.pos_tagger
+        >>> tagger = chana.pos_tagger.ShipiboPosTagger()
+        >>> tagger.full_pos_tag('Atsa ea piai')
+        ['Nombre', 'Pronombre', 'Verbo']
+        
+    """
         tags = self.pos_tag(sentence)
         for i in range(len( tags)):
             tags[i] = self.get_complete_tag(tags[i])
         return tags
 
     def get_complete_tag(self,pos):
-        """
-        Method that predict the pos-tags of a shipibo sentence and returns the full tag in spanish
-        """
+        """ Method that returns the full tag in spanish of a tag
+
+        :param pos: a pos tag in the UD format
+        :type pos: str
+        :returns: str with the tag in spanish
+        :rtype: str
+
+        :Example:
+
+        >>> import chana.pos_tagger
+        >>> tagger = chana.pos_tagger.ShipiboPosTagger()
+        >>> tagger.get_complete_tag('ADJ')
+        'Adjetivo'
+        
+    """
         if pos == "ADJ": return "Adjetivo"
         elif pos == "ADV" : return "Adverbio"
         elif pos == "CONJ" : return "Conjunción"

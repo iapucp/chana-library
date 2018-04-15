@@ -1,12 +1,22 @@
 #coding=UTF-8
 """
-Syllabificator for shipibo-konibo
-
+Syllabificator for shipibo-konibo.
 General functions and rules to syllabify a shipibo-konibo word
 """
 def syllabify(word):
-    """
-    Function that returns all the syllables of a word
+    """ Function that returns all the syllables of a word
+
+        :param word: a word to get its syllables
+        :type word: str
+        :returns: list of syllables
+        :rtype: list
+
+        :Example:
+
+        >>> import chana.syllabificator
+        >>> chana.syllabificator.syllabify('atsabo')
+        ['a', 'tsa', 'bo']
+
     """
     word_vc = get_vc(word)
     sibilantes = ['m','n', 's', 'sh', 'x']
@@ -114,8 +124,19 @@ def syllabify(word):
     return syllables
 
 def get_vc(word):
-    """
-    Function that returns all the vowels and consonants of a word
+    """ Function that returns all the vowels and consonants of a word
+
+        :param word: word to get its vowels and consonants
+        :type word: str
+        :returns: list of 'V' and 'C' for each letter of the word
+        :rtype: list
+
+        :Example:
+
+        >>> import chana.syllabificator
+        >>> chana.syllabificator.get_vc('piti')
+        [['p', 'C'], ['i', 'V'], ['t', 'C'], ['i', 'V']]
+
     """
     structure = []
     vowels = ['a', 'e', 'i', 'o']
@@ -163,8 +184,20 @@ def get_vc(word):
     return structure
 
 def change(syllable):
-    """
-    Function that returns the original form of a syllable
+
+    """ Function that returns the original form of a syllable
+
+        :param syllable: a syllable to be transformed
+        :type syllable: str
+        :returns: syllable with its original form
+        :rtype: str
+
+        :Example:
+
+        >>> import chana.syllabificator
+        >>> chana.syllabificator.change('1a')
+        cha
+
     """
     if "1" in syllable:
         syllable = syllable.replace("1", "ch")
@@ -181,8 +214,19 @@ def change(syllable):
     return syllable
 
 def accentuate(letter):
-    """
-    Function that adds the accentuation mark of a letter
+    """ Function that adds the accentuation mark of a letter:
+
+        :param letter: a letter to be accentuated
+        :type letter: str
+        :returns: letter accentuated
+        :rtype: str
+
+        :Example:
+
+        >>> import chana.syllabificator
+        >>> chana.syllabificator.accentuate('a')
+        á
+
     """
     if letter == "a":
         letter = "á"

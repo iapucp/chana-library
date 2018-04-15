@@ -8,7 +8,7 @@ Chana: An NLP toolkit for the Shipibo-Konibo language of Peru.
 
 Welcome to Chana's documentation. Get started with :ref:`installation`
 and then get an overview with the :ref:`quickstart`.
-The rest of the docs desribe each component of
+The rest of the docs describe each component of
 Chana in detail, with a full reference in the :ref:`api` section.
 
 
