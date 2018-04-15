@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Chana: An NLP toolkit for the Shipibo-Konibo language of Peru.
-=================================
+==================================================================
 
 Welcome to Chana's documentation. Get started with :ref:`installation`
 and then get an overview with the :ref:`quickstart`.
