@@ -20,8 +20,9 @@ Jose Pereira <jpereira@pucp.edu.pe>
 Contributors
 ^^^^^^^^^^^^^^^^
 - Jose Pereira (Lemmatizer)
-- Rodolfo Mercado (Pos-Tagger and Syllabificator)
-- Vivian Gongora Ronacher (NER)
+- Rodolfo Mercado (Pos-Tagger)
+- Vivian Gongora (NER)
+- Carlo Alva (Syllabificator)
 
 
 General License Definitions
